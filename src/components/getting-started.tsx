@@ -199,7 +199,7 @@ export function GettingStarted() {
   }
 
   return (
-    <section id="start" className="border-t border-border py-20">
+    <section id="start" className="border-t border-border py-16">
       <div className="mx-auto max-w-3xl px-6">
         <p className="text-sm font-medium text-accent">Find your level</p>
         <h2 className="mt-2 text-2xl font-bold tracking-tight">

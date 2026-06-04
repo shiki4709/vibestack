@@ -13,7 +13,7 @@ export function EmailCapture() {
   }
 
   return (
-    <section id="notify" className="border-t border-border py-20">
+    <section id="notify" className="border-t border-border py-16">
       <div className="mx-auto max-w-3xl px-6">
         <h2 className="text-2xl font-bold tracking-tight">
           Start building this week

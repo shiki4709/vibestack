@@ -21,7 +21,7 @@ export function CommunityFeed() {
   const posts = xDemos as readonly XPost[];
 
   return (
-    <section id="community" className="border-t border-border py-20">
+    <section id="community" className="border-t border-border py-16">
       <div className="mx-auto max-w-3xl px-6">
         <p className="text-sm font-medium text-accent">From the community</p>
         <h2 className="mt-2 text-2xl font-bold tracking-tight">

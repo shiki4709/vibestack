@@ -1,3 +1,5 @@
+import { AnimateIn, AnimateStagger, AnimateStaggerItem } from "@/components/animate-in";
+
 const levels = [
   {
     level: "1",
@@ -51,12 +53,16 @@ const outcomes = [
 
 export function WhatIsVibeCoding() {
   return (
-    <section className="border-t border-border py-20">
+    <section className="border-t border-border py-16">
       <div className="mx-auto max-w-3xl px-6">
-        <p className="text-sm font-medium text-accent">Why this matters now</p>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight">
-          ChatGPT was level one. This is level two.
-        </h2>
+        <AnimateIn>
+          <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+            Why this matters now
+          </p>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight">
+            ChatGPT was level one. This is level two.
+          </h2>
+        </AnimateIn>
         <p className="mt-3 text-sm leading-relaxed text-muted">
           Most people are stuck asking AI questions — writing emails, summarizing
           docs, brainstorming ideas. That&apos;s useful, but it&apos;s table
@@ -134,9 +140,9 @@ export function WhatIsVibeCoding() {
             Everyone starts somewhere. Each level unlocks new career possibilities.
           </p>
 
-          <div className="mt-6 space-y-4">
+          <AnimateStagger className="mt-6 space-y-4">
             {levels.map((l) => (
-              <div
+              <AnimateStaggerItem
                 key={l.level}
                 className="rounded-xl border border-border bg-card p-5"
               >
@@ -157,9 +163,9 @@ export function WhatIsVibeCoding() {
                     <span className="text-muted">{l.tools}</span>
                   </div>
                 </div>
-              </div>
+              </AnimateStaggerItem>
             ))}
-          </div>
+          </AnimateStagger>
         </div>
       </div>
     </section>

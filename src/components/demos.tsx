@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { demos, categories } from "@/data/demos";
 import { DemoCard } from "@/components/demo-card";
+import { AnimateIn } from "@/components/animate-in";
 
 const levels = [
   { value: 0 as const, label: "All Levels" },
@@ -23,15 +25,19 @@ export function Demos() {
   });
 
   return (
-    <section id="demos" className="border-t border-border py-20">
+    <section id="demos" className="border-t border-border py-16">
       <div className="mx-auto max-w-3xl px-6">
-        <p className="text-sm font-medium text-accent">Discover</p>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight">
-          See tools in action
-        </h2>
-        <p className="mt-2 text-sm text-muted">
-          {demos.length} tools tagged by level. Start with what matches you.
-        </p>
+        <AnimateIn>
+          <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+            Discover
+          </p>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight">
+            See tools in action
+          </h2>
+          <p className="mt-2 text-sm text-muted">
+            {demos.length} tools tagged by level. Start with what matches you.
+          </p>
+        </AnimateIn>
 
         {/* Level filter */}
         <div className="mt-6">
@@ -75,12 +81,23 @@ export function Demos() {
           </div>
         </div>
 
-        {/* Demo grid */}
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
-          {filtered.map((demo) => (
-            <DemoCard key={demo.slug} demo={demo} />
-          ))}
-        </div>
+        {/* Demo grid with animation */}
+        <motion.div layout className="mt-8 grid gap-5 sm:grid-cols-2">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((demo) => (
+              <motion.div
+                key={demo.slug}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
+              >
+                <DemoCard demo={demo} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {filtered.length === 0 && (
           <p className="mt-8 text-center text-sm text-muted">
