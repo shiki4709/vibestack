@@ -1,52 +1,73 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --muted: #78716c;
-  --accent: #e87f61;
-  --accent-hover: #d4714f;
-  --card: #ffffff;
-  --card-hover: #f5f5f4;
-  --border: #e7e5e4;
+  --bg: #ffffff;
+  --surface: #f8f7f5;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --primary: #5b7fb5;
+  --accent: #d4735e;
+  --border: #e5e3df;
+  --level-1: #d4735e;
+  --level-2: #8b7bb5;
+  --level-3: #5b7fb5;
+  --free: #5a9a6e;
+  --free-tier: #b08735;
+  --gradient-start: #5b7fb5;
+  --gradient-end: #d4735e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
   --color-muted: var(--muted);
+  --color-primary: var(--primary);
   --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-card: var(--card);
-  --color-card-hover: var(--card-hover);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-level-1: var(--level-1);
+  --color-level-2: var(--level-2);
+  --color-level-3: var(--level-3);
+  --color-free: var(--free);
+  --color-free-tier: var(--free-tier);
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-figtree);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 
-/* Focus states for accessibility */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Smooth scroll */
-html.lenis,
-html.lenis body {
-  height: auto;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+@layer utilities {
+  .btn-gradient {
+    background: linear-gradient(135deg, #5b7fb5, #d4735e);
+    color: #fff;
+  }
+  .btn-gradient:hover { opacity: 0.85; }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #5b7fb5, #d4735e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }

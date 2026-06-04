@@ -6,17 +6,6 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 const levelLabel = { 1: "Prompter", 2: "Tweaker", 3: "Builder" } as const;
-const levelStyle = {
-  1: "bg-emerald-50 text-emerald-700",
-  2: "bg-blue-50 text-blue-700",
-  3: "bg-violet-50 text-violet-700",
-} as const;
-const pricingLabel = { free: "Free", "free-tier": "Free tier", paid: "Paid" } as const;
-const pricingStyle = {
-  free: "bg-emerald-50 text-emerald-700",
-  "free-tier": "bg-amber-50 text-amber-700",
-  paid: "bg-stone-100 text-stone-500",
-} as const;
 
 export function generateStaticParams() {
   return demos.map((d) => ({ slug: d.slug }));
@@ -39,12 +28,11 @@ export default async function ToolPage({ params }: ToolPageProps) {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <div className="mx-auto max-w-3xl px-6 pb-20 pt-12">
-          {/* Back link */}
           <a
             href="/#demos"
-            className="text-sm text-muted transition-colors hover:text-foreground"
+            className="text-sm text-muted transition-colors hover:text-ink"
           >
             &larr; Back to tools
           </a>
@@ -56,6 +44,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
               <img
                 src={tool.image}
                 alt={`${tool.name} preview`}
+                loading="lazy"
                 className="w-full object-cover"
               />
             </div>
@@ -64,7 +53,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
           {/* Header */}
           <div className="mt-8 flex items-start justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">{tool.name}</h1>
+              <h1 className="font-display text-3xl font-bold tracking-tight text-ink">
+                {tool.name}
+              </h1>
               <p className="mt-2 text-muted">{tool.description}</p>
             </div>
             <SaveButton slug={tool.slug} name={tool.name} />
@@ -72,23 +63,25 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
           {/* Badges */}
           <div className="mt-4 flex flex-wrap gap-2">
-            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${levelStyle[tool.level]}`}>
+            <span
+              className="rounded-full px-3 py-1 text-xs font-semibold text-white"
+              style={{ background: `var(--level-${tool.level})` }}
+            >
               Lv.{tool.level} {levelLabel[tool.level]}
             </span>
-            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${pricingStyle[tool.pricing]}`}>
-              {pricingLabel[tool.pricing]}
-            </span>
+            {tool.pricing === "free" && (
+              <span className="rounded-full bg-free/10 px-3 py-1 text-xs font-semibold text-free">
+                Free
+              </span>
+            )}
+            {tool.pricing === "free-tier" && (
+              <span className="rounded-full bg-free-tier/10 px-3 py-1 text-xs font-semibold text-free-tier">
+                Free tier
+              </span>
+            )}
             <span className="rounded-full border border-border px-3 py-1 text-xs text-muted">
               {tool.category}
             </span>
-            {tool.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-border px-3 py-1 text-xs text-muted"
-              >
-                {tag}
-              </span>
-            ))}
           </div>
 
           {/* Links */}
@@ -97,7 +90,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
               href={tool.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-80"
+              className="rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-85"
             >
               GitHub
             </a>
@@ -106,7 +99,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 href={tool.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-card-hover"
+                className="rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-muted transition-colors hover:text-ink"
               >
                 Website
               </a>
@@ -115,18 +108,18 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
           {profile && (
             <>
-              {/* Plain English explanation */}
-              <div className="mt-12 rounded-xl border border-accent/20 bg-accent/5 p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+              {/* Plain English */}
+              <div className="mt-12 border-l-2 border-primary/30 pl-6">
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
                   In plain English
                 </p>
-                <p className="mt-3 text-base leading-relaxed">
+                <p className="mt-3 font-display text-lg leading-relaxed text-ink">
                   {profile.analogy}
                 </p>
               </div>
 
               {/* Real world example */}
-              <div className="mt-6 rounded-xl border border-border bg-card p-6">
+              <div className="mt-8 rounded-xl bg-surface p-6">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                   Real-world example
                 </p>
@@ -135,19 +128,22 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 </p>
               </div>
 
-              {/* Where in the dev process */}
-              <div className="mt-10">
-                <h2 className="text-lg font-bold">Where this fits in your project</h2>
-                <p className="mt-2 text-sm text-muted">{profile.devStageDescription}</p>
-
+              {/* Dev process */}
+              <div className="mt-12">
+                <h2 className="font-display text-lg font-bold text-ink">
+                  Where this fits in your project
+                </h2>
+                <p className="mt-2 text-sm text-muted">
+                  {profile.devStageDescription}
+                </p>
                 <div className="mt-4 flex gap-1 overflow-x-auto pb-2">
                   {devStageOrder.map((stage, i) => (
                     <div
                       key={stage}
-                      className={`shrink-0 rounded-lg px-3 py-2 text-[11px] font-medium transition-colors ${
+                      className={`shrink-0 rounded-lg px-3 py-2 text-[11px] font-medium ${
                         i === currentStageIndex
-                          ? "bg-foreground text-background"
-                          : "bg-stone-100 text-muted"
+                          ? "bg-primary text-white"
+                          : "bg-surface text-muted"
                       }`}
                     >
                       {devStageLabel[stage]}
@@ -158,7 +154,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
               {/* When to use */}
               <div className="mt-10">
-                <h2 className="text-lg font-bold">When to use this</h2>
+                <h2 className="font-display text-lg font-bold text-ink">
+                  When to use this
+                </h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {profile.whenToUse}
                 </p>
@@ -166,7 +164,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
               {/* Situation */}
               <div className="mt-8">
-                <h2 className="text-lg font-bold">The situation</h2>
+                <h2 className="font-display text-lg font-bold text-ink">
+                  The situation
+                </h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {profile.situation}
                 </p>
@@ -174,24 +174,22 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
               {/* Good for / Not for */}
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                <div className="rounded-xl border border-border bg-card p-5">
-                  <p className="text-sm font-semibold text-emerald-700">Good for</p>
+                <div>
+                  <p className="text-sm font-semibold text-free">Good for</p>
                   <ul className="mt-3 space-y-2">
                     {profile.goodFor.map((item) => (
-                      <li key={item} className="flex gap-2 text-sm text-muted">
-                        <span className="text-emerald-500">+</span>
-                        {item}
+                      <li key={item} className="text-sm text-muted">
+                        + {item}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-xl border border-border bg-card p-5">
-                  <p className="text-sm font-semibold text-red-600">Not ideal for</p>
+                <div>
+                  <p className="text-sm font-semibold text-accent">Not ideal for</p>
                   <ul className="mt-3 space-y-2">
                     {profile.notFor.map((item) => (
-                      <li key={item} className="flex gap-2 text-sm text-muted">
-                        <span className="text-red-400">-</span>
-                        {item}
+                      <li key={item} className="text-sm text-muted">
+                        - {item}
                       </li>
                     ))}
                   </ul>
@@ -199,8 +197,10 @@ export default async function ToolPage({ params }: ToolPageProps) {
               </div>
 
               {/* Getting started */}
-              <div className="mt-8 rounded-xl border border-border bg-card p-5">
-                <p className="text-sm font-semibold">Getting started</p>
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="font-display text-sm font-semibold text-ink">
+                  Getting started
+                </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {profile.gettingStarted}
                 </p>
@@ -208,7 +208,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
               {/* Alternatives */}
               <div className="mt-8">
-                <h2 className="text-lg font-bold">Alternatives</h2>
+                <h2 className="font-display text-lg font-bold text-ink">
+                  Alternatives
+                </h2>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {profile.alternatives.map((alt) => (
                     <span

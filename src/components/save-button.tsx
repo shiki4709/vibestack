@@ -40,10 +40,11 @@ export function SaveButton({ slug, name }: SaveButtonProps) {
     <button
       type="button"
       onClick={toggle}
+      aria-label={saved ? `Remove ${name} from saved` : `Save ${name}`}
       className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
         saved
-          ? "border-accent bg-accent/10 text-accent"
-          : "border-border text-muted hover:text-foreground"
+          ? "border-primary bg-primary/10 text-primary"
+          : "border-border text-muted hover:text-ink"
       }`}
     >
       {saved ? "Saved" : "Save"}

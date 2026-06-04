@@ -1,16 +1,16 @@
 export function Footer() {
   return (
-    <footer className="border-t border-border py-8">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6">
-        <span className="text-sm text-muted">vibestack</span>
-        <div className="flex gap-5 text-sm text-muted">
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
-            YouTube
-          </a>
-          <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
-            X
-          </a>
+    <footer className="border-t border-border py-10" role="contentinfo">
+      <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 px-6 sm:flex-row sm:items-center">
+        <div>
+          <span className="font-display text-sm font-bold text-ink">vibestack</span>
+          <p className="mt-1 text-xs text-muted">
+            Open-source tools for vibe coders.
+          </p>
         </div>
+        <p className="text-xs text-muted">
+          &copy; {new Date().getFullYear()} VibeStack
+        </p>
       </div>
     </footer>
   );

@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Impeccable skill (installed locally)
+.claude/skills/impeccable/
+.cursor/skills/impeccable/
+.agents/skills/impeccable/

@@ -14,48 +14,39 @@ export function EmailCapture() {
 
   return (
     <section id="notify" className="border-t border-border py-16">
-      <div className="mx-auto max-w-3xl px-6">
-        <h2 className="text-2xl font-bold tracking-tight">
-          Start building this week
-        </h2>
-        <p className="mt-2 text-sm text-muted">
-          Every week we send one email: a new tool, a 60-second demo, and one
-          idea for how it can help your career or business. Free forever.
-        </p>
-
+      <div className="mx-auto max-w-xl px-6 text-center">
         {submitted ? (
-          <div className="mt-8 rounded-lg border border-border bg-card p-6">
-            <p className="font-medium">You&apos;re in.</p>
+          <div>
+            <p className="font-display text-xl font-bold text-ink">You&apos;re in.</p>
             <p className="mt-1 text-sm text-muted">
-              First email drops this week. In the meantime, take the quiz above
-              and start building.
+              First email drops this week.
             </p>
           </div>
         ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-          >
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 text-sm outline-none transition-colors focus:border-foreground"
-            />
-            <button
-              type="submit"
-              className="rounded-lg bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-80"
-            >
-              Subscribe
-            </button>
-          </form>
+          <>
+            <p className="font-display text-lg font-bold text-ink">
+              Weekly drop of the best new tools. Free.
+            </p>
+            <form onSubmit={handleSubmit} className="mt-4 flex gap-2">
+              <label htmlFor="email-input" className="sr-only">Email address</label>
+              <input
+                id="email-input"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                className="min-w-0 flex-1 rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary"
+              />
+              <button
+                type="submit"
+                className="btn-gradient shrink-0 rounded-lg px-5 py-2.5 text-sm font-medium"
+              >
+                Subscribe
+              </button>
+            </form>
+          </>
         )}
-
-        <p className="mt-4 text-xs text-muted/60">
-          No spam. Unsubscribe anytime.
-        </p>
       </div>
     </section>
   );

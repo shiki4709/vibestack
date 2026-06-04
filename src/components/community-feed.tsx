@@ -1,58 +1,41 @@
+import { AnimateIn } from "@/components/animate-in";
 import xDemos from "@/data/x-demos.json";
 
 interface XPost {
   readonly author: string;
-  readonly handle: string;
   readonly text: string;
   readonly url: string;
   readonly tool: string;
-  readonly type: string;
 }
-
-const typeLabel: Record<string, string> = {
-  demo: "Demo",
-  launch: "Launch",
-  workflow: "Workflow",
-  learning: "Learning",
-  insight: "Insight",
-};
 
 export function CommunityFeed() {
   const posts = xDemos as readonly XPost[];
 
   return (
-    <section id="community" className="border-t border-border py-16">
-      <div className="mx-auto max-w-3xl px-6">
-        <p className="text-sm font-medium text-accent">From the community</p>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight">
-          What builders are saying on X
-        </h2>
-        <p className="mt-2 text-sm text-muted">
-          Real people sharing how they vibe code. Follow the conversation.
-        </p>
+    <section id="community" className="border-t border-border py-20">
+      <div className="mx-auto max-w-5xl px-6">
+        <AnimateIn>
+          <p className="text-sm font-medium text-primary">From the community</p>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink">
+            What builders are saying
+          </h2>
+        </AnimateIn>
 
-        <div className="mt-8 space-y-4">
-          {posts.map((post) => (
+        {/* Horizontal scroll on mobile, grid on desktop */}
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.slice(0, 6).map((post) => (
             <a
               key={post.url}
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-xl border border-border bg-card p-5 transition-colors hover:bg-card-hover"
+              className="block border-l-2 border-primary/20 py-3 pl-4 transition-colors hover:border-primary/50"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold">{post.author}</span>
-                <span className="rounded-full border border-border px-2 py-0.5 text-[10px] text-muted">
-                  {post.tool}
-                </span>
-                <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-muted">
-                  {typeLabel[post.type] ?? post.type}
-                </span>
+              <p className="text-sm leading-relaxed text-muted">{post.text}</p>
+              <div className="mt-3 flex items-center gap-2">
+                <span className="text-xs font-medium text-ink">{post.author}</span>
+                <span className="text-xs text-muted">on {post.tool}</span>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {post.text}
-              </p>
-              <p className="mt-2 text-xs text-accent">View on X</p>
             </a>
           ))}
         </div>
