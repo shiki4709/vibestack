@@ -1,0 +1,66 @@
+[
+  {
+    "author": "@boltdotnew",
+    "handle": "boltdotnew",
+    "text": "Today vibe coding goes pro. Introducing Bolt v2: World's best agents (Claude Code, Codex), built in backend. Now anyone can build without boundaries.",
+    "url": "https://x.com/boltdotnew/status/1973063093849567591",
+    "tool": "Bolt",
+    "type": "launch"
+  },
+  {
+    "author": "@levelsio",
+    "handle": "levelsio",
+    "text": "Day 5 of the Cursor #vibejam — Cursor 3 is a completely rebuilt interface designed around agents, run multiple AI agents in parallel.",
+    "url": "https://x.com/levelsio/status/2041628070998667520",
+    "tool": "Cursor",
+    "type": "demo"
+  },
+  {
+    "author": "@boringmarketer",
+    "handle": "boringmarketer",
+    "text": "What I've learned about vibe coding in Cursor over 4 weeks — a connected environment where you go from INSIGHT → ACTION is incredibly powerful.",
+    "url": "https://x.com/boringmarketer/status/1938312033096589506",
+    "tool": "Cursor",
+    "type": "learning"
+  },
+  {
+    "author": "@houstongolden",
+    "handle": "houstongolden",
+    "text": "Heavy daily vibe coder rank: 1. Bolt 2. Cursor 3. Lovable. Workflow: build MVP in Bolt → move to Cursor with Claude Code in terminal.",
+    "url": "https://x.com/houstongolden/status/1947723604629557702",
+    "tool": "Bolt",
+    "type": "workflow"
+  },
+  {
+    "author": "@bcherny",
+    "handle": "bcherny",
+    "text": "I'm Boris and I created Claude Code. Lots of people asked how I use it — my setup is surprisingly vanilla. It works great out of the box.",
+    "url": "https://x.com/bcherny/status/2007179832300581177",
+    "tool": "Claude Code",
+    "type": "demo"
+  },
+  {
+    "author": "@PrajwalTomar_",
+    "handle": "PrajwalTomar_",
+    "text": "The loop that makes vibe coding work: load project context, pick a feature, ask for approaches first — not code. Then let it build.",
+    "url": "https://x.com/PrajwalTomar_/status/1947272871967174720",
+    "tool": "Cursor",
+    "type": "workflow"
+  },
+  {
+    "author": "@code_rams",
+    "handle": "code_rams",
+    "text": "This 30-min video will change how you build with Claude forever. Vibe Coding is real — talk to Claude like a senior dev who knows your project.",
+    "url": "https://x.com/code_rams/status/2046345971836350646",
+    "tool": "Claude Code",
+    "type": "learning"
+  },
+  {
+    "author": "@paoloanzn",
+    "handle": "paoloanzn",
+    "text": "Claude Code wrappers are going to be the Cursor of 2026. Letting AI control its own environment instead of copy pasting context is fundamentally better.",
+    "url": "https://x.com/paoloanzn/status/2007671013857796441",
+    "tool": "Claude Code",
+    "type": "insight"
+  }
+]

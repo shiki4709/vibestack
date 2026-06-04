@@ -1,0 +1,163 @@
+[
+  {
+    "slug": "shadcn-ui",
+    "name": "shadcn/ui",
+    "image": "https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/public/opengraph-image.png",
+    "imageType": "readme",
+    "demoUrl": null
+  },
+  {
+    "slug": "magic-ui",
+    "name": "Magic UI",
+    "image": "https://cdn.magicui.design/bento-grid.gif",
+    "imageType": "gif",
+    "demoUrl": null
+  },
+  {
+    "slug": "aceternity-ui",
+    "name": "Aceternity UI",
+    "image": "",
+    "imageType": "none",
+    "demoUrl": null
+  },
+  {
+    "slug": "next-themes",
+    "name": "next-themes",
+    "image": "",
+    "imageType": "none",
+    "demoUrl": null
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "image": "https://opengraph.githubassets.com/1/emilkowalski/sonner",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "hono",
+    "name": "Hono",
+    "image": "https://raw.githubusercontent.com/honojs/hono/main/docs/images/hono-title.png",
+    "imageType": "readme",
+    "demoUrl": null
+  },
+  {
+    "slug": "trpc",
+    "name": "tRPC",
+    "image": "https://assets.trpc.io/www/v10/v10-dark-landscape.gif",
+    "imageType": "gif",
+    "demoUrl": null
+  },
+  {
+    "slug": "elysia",
+    "name": "Elysia",
+    "image": "https://opengraph.githubassets.com/1/elysiajs/elysia",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "supabase",
+    "name": "Supabase",
+    "image": "https://raw.githubusercontent.com/supabase/supabase/d5f7f413ab356dc1a92075cb3cee4e40a957d5b1/web/static/watch-repo.gif",
+    "imageType": "gif",
+    "demoUrl": null
+  },
+  {
+    "slug": "drizzle-orm",
+    "name": "Drizzle ORM",
+    "image": "https://opengraph.githubassets.com/1/drizzle-team/drizzle-orm",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "convex",
+    "name": "Convex",
+    "image": "https://opengraph.githubassets.com/1/get-convex/convex-backend",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "vercel-ai-sdk",
+    "name": "Vercel AI SDK",
+    "image": "https://github.com/vercel/ai/blob/HEAD/assets/hero.gif",
+    "imageType": "gif",
+    "demoUrl": null
+  },
+  {
+    "slug": "langchain-js",
+    "name": "LangChain.js",
+    "image": "",
+    "imageType": "none",
+    "demoUrl": null
+  },
+  {
+    "slug": "openrouter",
+    "name": "OpenRouter",
+    "image": "https://opengraph.githubassets.com/1/OpenRouterTeam/openrouter-runner",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "better-auth",
+    "name": "Better Auth",
+    "image": "https://raw.githubusercontent.com/better-auth/better-auth/main/banner-light.png",
+    "imageType": "readme",
+    "demoUrl": null
+  },
+  {
+    "slug": "lucia-auth",
+    "name": "Lucia",
+    "image": "https://opengraph.githubassets.com/1/lucia-auth/lucia",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "clerk",
+    "name": "Clerk",
+    "image": "https://images.clerk.com/static/logo-light-mode-400x400.png",
+    "imageType": "readme",
+    "demoUrl": null
+  },
+  {
+    "slug": "coolify",
+    "name": "Coolify",
+    "image": "https://github.com/OpenElements.png",
+    "imageType": "readme",
+    "demoUrl": null
+  },
+  {
+    "slug": "dokku",
+    "name": "Dokku",
+    "image": "https://opengraph.githubassets.com/1/dokku/dokku",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "sst",
+    "name": "SST",
+    "image": "https://opengraph.githubassets.com/1/sst/sst",
+    "imageType": "og",
+    "demoUrl": null
+  },
+  {
+    "slug": "biome",
+    "name": "Biome",
+    "image": "https://depot.dev/assets/brand/1693758816/depot-logo-horizontal-on-light@3x.png",
+    "imageType": "readme",
+    "demoUrl": null
+  },
+  {
+    "slug": "turborepo",
+    "name": "Turborepo",
+    "image": "https://user-images.githubusercontent.com/4060187/196936104-5797972c-ab10-4834-bd61-0d1e5f442c9c.png",
+    "imageType": "readme",
+    "demoUrl": null
+  },
+  {
+    "slug": "cursor-rules",
+    "name": "cursor.directory",
+    "image": "https://opengraph.githubassets.com/1/pontusab/cursor.directory",
+    "imageType": "og",
+    "demoUrl": null
+  }
+]

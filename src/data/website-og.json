@@ -1,0 +1,121 @@
+[
+  {
+    "slug": "shadcn-ui",
+    "name": "shadcn/ui",
+    "url": "https://ui.shadcn.com",
+    "ogImage": "https://ui.shadcn.com/og?title=The%20Foundation%20for%20your%20Design%20System&amp;description=A%20set%20of%20beautifully%20designed%20components%20that%20you%20can%20customize%2C%20extend%2C%20and%20build%20on.%20Start%20here%20then%20make%20it%20your%20own.%20Open%20Source.%20Open%20Code.",
+    "ogTitle": "The Foundation for your Design System - shadcn/ui"
+  },
+  {
+    "slug": "magic-ui",
+    "name": "Magic UI",
+    "url": "https://magicui.design",
+    "ogImage": "https://magicui.design/og",
+    "ogTitle": "Magic UI"
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "url": "https://sonner.emilkowal.ski",
+    "ogImage": "https://sonner.emilkowal.ski/opengraph-image.png?d5e368c2f1b9b507",
+    "ogTitle": "Sonner"
+  },
+  {
+    "slug": "hono",
+    "name": "Hono",
+    "url": "https://hono.dev",
+    "ogImage": "https://hono.dev/images/hono-title.png",
+    "ogTitle": null
+  },
+  {
+    "slug": "trpc",
+    "name": "tRPC",
+    "url": "https://trpc.io",
+    "ogImage": null,
+    "ogTitle": null
+  },
+  {
+    "slug": "elysia",
+    "name": "Elysia",
+    "url": "https://elysiajs.com",
+    "ogImage": "https://elysiajs.com/assets/cover.webp",
+    "ogTitle": "Elysia - Ergonomic Framework for Humans"
+  },
+  {
+    "slug": "supabase",
+    "name": "Supabase",
+    "url": "https://supabase.com",
+    "ogImage": "https://supabase.com/images/og/supabase-og.png",
+    "ogTitle": "Supabase | The Postgres Development Platform."
+  },
+  {
+    "slug": "drizzle-orm",
+    "name": "Drizzle ORM",
+    "url": "https://orm.drizzle.team",
+    "ogImage": null,
+    "ogTitle": "Drizzle ORM - next gen TypeScript ORM."
+  },
+  {
+    "slug": "convex",
+    "name": "Convex",
+    "url": "https://convex.dev",
+    "ogImage": "https://www.convex.dev/api/og?title=The%20backend%20building%20blocks%20for%20your%20agents",
+    "ogTitle": "Convex | The backend building blocks for your agents"
+  },
+  {
+    "slug": "vercel-ai-sdk",
+    "name": "Vercel AI SDK",
+    "url": "https://sdk.vercel.ai",
+    "ogImage": "https://e742qlubrjnjqpp0.public.blob.vercel-storage.com/og.png",
+    "ogTitle": "AI SDK"
+  },
+  {
+    "slug": "openrouter",
+    "name": "OpenRouter",
+    "url": "https://openrouter.ai",
+    "ogImage": "https://openrouter.ai/dynamic-og?pathname=default&amp;title=OpenRouter&amp;description=The+unified+interface+for+LLMs.+Find+the+best+models+%26+prices+for+your+prompts",
+    "ogTitle": "OpenRouter"
+  },
+  {
+    "slug": "better-auth",
+    "name": "Better Auth",
+    "url": "https://better-auth.com",
+    "ogImage": "https://better-auth.com/og.png",
+    "ogTitle": "Better Auth"
+  },
+  {
+    "slug": "clerk",
+    "name": "Clerk",
+    "url": "https://clerk.com",
+    "ogImage": "https://clerk.com/opengraph-image.jpg?opengraph-image.0goco-shezoln.jpg?dpl=dpl_BsF8LqwXEGEnW1rSdgkERZji9h9H",
+    "ogTitle": "Clerk | Authentication and User Management"
+  },
+  {
+    "slug": "coolify",
+    "name": "Coolify",
+    "url": "https://coolify.io",
+    "ogImage": "https://coolify.io/images/og-image.png",
+    "ogTitle": "Coolify"
+  },
+  {
+    "slug": "sst",
+    "name": "SST",
+    "url": "https://sst.dev",
+    "ogImage": "https://social-cards.sst.dev/v3-lander/Rm9yJTIwd2hhdGV2ZXIlMjB5b3UlMjBidWlsZC4%3D.png",
+    "ogTitle": "SST"
+  },
+  {
+    "slug": "biome",
+    "name": "Biome",
+    "url": "https://biomejs.dev",
+    "ogImage": "https://biomejs.dev/img/og.png?v=2",
+    "ogTitle": "Biome"
+  },
+  {
+    "slug": "cursor-rules",
+    "name": "cursor.directory",
+    "url": "https://cursor.directory",
+    "ogImage": null,
+    "ogTitle": null
+  }
+]
