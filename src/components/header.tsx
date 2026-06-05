@@ -22,6 +22,12 @@ export function Header() {
             Tools
           </a>
           <a
+            href="/trends"
+            className="px-2 py-2 text-muted transition-colors hover:text-ink"
+          >
+            Trending
+          </a>
+          <a
             href="#notify"
             className="btn-gradient rounded-lg px-4 py-2 font-medium"
           >
