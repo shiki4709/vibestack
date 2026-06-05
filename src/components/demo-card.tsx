@@ -7,7 +7,7 @@ export function DemoCard({ demo }: { readonly demo: Demo }) {
   return (
     <Link
       href={`/tools/${demo.slug}`}
-      className="group block overflow-hidden rounded-xl border border-border transition-colors hover:border-primary/30"
+      className="card-hover group block overflow-hidden rounded-xl border border-border"
     >
       {/* Image */}
       <div className="relative aspect-video overflow-hidden bg-surface">
@@ -17,13 +17,15 @@ export function DemoCard({ demo }: { readonly demo: Demo }) {
             src={demo.image}
             alt={`${demo.name} preview`}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform group-hover:scale-[1.03]"
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
           />
         ) : (
           <div className="flex h-full items-center justify-center">
             <span className="font-display text-lg font-bold text-muted/40">{demo.name}</span>
           </div>
         )}
+        {/* Hover overlay gradient */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
 
       {/* Info */}

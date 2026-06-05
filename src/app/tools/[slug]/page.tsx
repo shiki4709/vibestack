@@ -31,10 +31,10 @@ export default async function ToolPage({ params }: ToolPageProps) {
       <main id="main" className="flex-1">
         <div className="mx-auto max-w-3xl px-6 pb-20 pt-12">
           <a
-            href="/#demos"
+            href="/dictionary"
             className="text-sm text-muted transition-colors hover:text-ink"
           >
-            &larr; Back to tools
+            &larr; Back to dictionary
           </a>
 
           {/* Hero image */}

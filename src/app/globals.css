@@ -57,17 +57,107 @@ body {
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
+/* ── Keyframes ── */
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gradient-border-spin {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
 @layer utilities {
   .btn-gradient {
     background: linear-gradient(135deg, #5b7fb5, #d4735e);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
     color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
   }
-  .btn-gradient:hover { opacity: 0.85; }
+  .btn-gradient:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px -4px rgba(91, 127, 181, 0.4);
+  }
+  .btn-gradient:active {
+    transform: translateY(0);
+  }
 
   .text-gradient {
-    background: linear-gradient(135deg, #5b7fb5, #d4735e);
+    background: linear-gradient(135deg, #5b7fb5, #9b6fb5, #d4735e);
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Focus glow for inputs */
+  .focus-glow:focus {
+    box-shadow: 0 0 0 3px rgba(91, 127, 181, 0.15);
+    border-color: var(--primary);
+  }
+
+  /* Hover card lift */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                border-color 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.1);
+    border-color: rgba(91, 127, 181, 0.3);
+  }
+
+  /* Nav link underline animation */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1.5px;
+    background: var(--primary);
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+    left: 0;
   }
 }

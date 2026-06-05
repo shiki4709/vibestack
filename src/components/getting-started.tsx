@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { AnimateIn, AnimateStagger, AnimateStaggerItem, ScalePress } from "@/components/animate-in";
 
 interface Question {
   readonly id: string;
@@ -117,95 +119,152 @@ export function GettingStarted() {
   return (
     <section id="start" className="border-t border-border py-16">
       <div className="mx-auto max-w-2xl px-6">
-        <h2 className="font-display text-2xl font-bold text-ink">
-          Which vibe coder are you?
-        </h2>
-        <p className="mt-1 text-sm text-muted">
-          3 quick questions. We&apos;ll recommend the right tools.
-        </p>
+        <AnimateIn>
+          <h2 className="font-display text-2xl font-bold text-ink">
+            Which vibe coder are you?
+          </h2>
+          <p className="mt-1 text-sm text-muted">
+            3 quick questions. We&apos;ll recommend the right tools.
+          </p>
+        </AnimateIn>
 
         {/* Questions */}
-        <div className="mt-8 space-y-6">
+        <AnimateStagger className="mt-8 space-y-6">
           {questions.map((q, qi) => (
-            <div key={q.id}>
+            <AnimateStaggerItem key={q.id}>
               <p className="text-sm font-medium text-ink">
                 <span className="text-accent">{qi + 1}.</span> {q.question}
               </p>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 {q.options.map((opt) => (
-                  <button
-                    type="button"
-                    key={opt.label}
-                    onClick={() => selectAnswer(q.id, opt.value)}
-                    aria-pressed={answers[q.id] === opt.value}
-                    className={`rounded-lg border px-3 py-2.5 text-left text-sm transition-colors ${
-                      answers[q.id] === opt.value
-                        ? "border-primary bg-primary text-white"
-                        : "border-border hover:border-primary/30"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
+                  <ScalePress key={opt.label}>
+                    <motion.button
+                      type="button"
+                      onClick={() => selectAnswer(q.id, opt.value)}
+                      aria-pressed={answers[q.id] === opt.value}
+                      className={`w-full rounded-lg border px-3 py-2.5 text-left text-sm transition-colors ${
+                        answers[q.id] === opt.value
+                          ? "border-primary bg-primary text-white"
+                          : "border-border hover:border-primary/30"
+                      }`}
+                      animate={
+                        answers[q.id] === opt.value
+                          ? { scale: [1, 1.03, 1] }
+                          : {}
+                      }
+                      transition={{ duration: 0.2 }}
+                    >
+                      {opt.label}
+                    </motion.button>
+                  </ScalePress>
                 ))}
               </div>
-            </div>
+            </AnimateStaggerItem>
           ))}
-        </div>
+        </AnimateStagger>
 
         {/* Result button */}
-        {allAnswered && !showResult && (
-          <button
-            type="button"
-            onClick={() => setShowResult(true)}
-            className="btn-gradient mt-6 rounded-lg px-6 py-3 text-sm font-medium"
-          >
-            See my result
-          </button>
-        )}
-
-        {/* Result — compact */}
-        {showResult && (
-          <div className="mt-6 rounded-xl bg-surface p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-display text-xl font-bold text-ink">
-                  Level {recommendation.levelNumber}: {recommendation.levelName}
-                </p>
-                <p className="mt-1 text-sm text-muted">
-                  {recommendation.description}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={reset}
-                className="text-xs text-muted hover:text-ink"
-              >
-                Retake
-              </button>
-            </div>
-
-            <div className="mt-4 space-y-2">
-              {recommendation.tools.map((tool, i) => (
-                <a
-                  key={tool.name}
-                  href={tool.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-lg border border-border p-3 transition-colors hover:bg-white"
+        <AnimatePresence>
+          {allAnswered && !showResult && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ScalePress>
+                <button
+                  type="button"
+                  onClick={() => setShowResult(true)}
+                  className="btn-gradient mt-6 rounded-lg px-6 py-3 text-sm font-medium"
                 >
-                  <div>
-                    <span className="text-sm font-medium text-ink">{tool.name}</span>
-                    {i === 0 && (
-                      <span className="ml-2 text-xs text-accent">Best match</span>
-                    )}
-                    <p className="text-xs text-muted">{tool.why}</p>
-                  </div>
-                  <span className="text-xs text-muted">&rarr;</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
+                  See my result
+                </button>
+              </ScalePress>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Result */}
+        <AnimatePresence>
+          {showResult && (
+            <motion.div
+              className="mt-6 rounded-xl bg-surface p-6"
+              initial={{ opacity: 0, y: 16, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <motion.p
+                    className="font-display text-xl font-bold text-ink"
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.15, duration: 0.4 }}
+                  >
+                    Level {recommendation.levelNumber}: {recommendation.levelName}
+                  </motion.p>
+                  <motion.p
+                    className="mt-1 text-sm text-muted"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.25, duration: 0.4 }}
+                  >
+                    {recommendation.description}
+                  </motion.p>
+                </div>
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="text-xs text-muted hover:text-ink"
+                >
+                  Retake
+                </button>
+              </div>
+
+              <div className="mt-4 space-y-2">
+                {recommendation.tools.map((tool, i) => (
+                  <motion.a
+                    key={tool.name}
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-lg border border-border p-3 transition-colors hover:bg-white"
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: 0.3 + i * 0.08,
+                      duration: 0.35,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
+                    whileHover={{ x: 4 }}
+                  >
+                    <div>
+                      <span className="text-sm font-medium text-ink">{tool.name}</span>
+                      {i === 0 && (
+                        <motion.span
+                          className="ml-2 text-xs text-accent"
+                          animate={{ opacity: [0.6, 1, 0.6] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
+                          Best match
+                        </motion.span>
+                      )}
+                      <p className="text-xs text-muted">{tool.why}</p>
+                    </div>
+                    <motion.span
+                      className="text-xs text-muted"
+                      whileHover={{ x: 3 }}
+                    >
+                      &rarr;
+                    </motion.span>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

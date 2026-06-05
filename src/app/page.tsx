@@ -1,7 +1,6 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
-import { GettingStarted } from "@/components/getting-started";
-import { Demos } from "@/components/demos";
+import { SectionCards } from "@/components/section-cards";
 import { EmailCapture } from "@/components/email-capture";
 import { Footer } from "@/components/footer";
 
@@ -11,8 +10,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         <Hero />
-        <GettingStarted />
-        <Demos />
+        <SectionCards />
         <EmailCapture />
       </main>
       <Footer />
